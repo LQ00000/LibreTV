@@ -1,0 +1,26 @@
+name: Sync My Fork
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # 每天 UTC 时间 04:00 (通常对应 UTC+8 的中午 12 点)
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          repository: LQ00000/LibreTV
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync upstream
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          upstream_repository: LibreSpark/LibreTV
+          target_branch: main
+          upstream_branch: main
+          # merge_method: merge # 默认为 merge，也可以设置为 rebase
