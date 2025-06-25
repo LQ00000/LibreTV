@@ -16,11 +16,11 @@ jobs:
           repository: LQ00000/LibreTV
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Sync upstream
+    - name: Sync upstream
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
         with:
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-          upstream_repository: LibreSpark/LibreTV
-          target_branch: main
-          upstream_branch: main
-          # merge_method: merge # 默认为 merge，也可以设置为 rebase
+          upstream_sync_repo: LibreSpark/LibreTV
+          upstream_sync_branch: main 
+          target_sync_branch: main 
+          # merge_method: merge # 默认为 merge，可以保留或删除此行
