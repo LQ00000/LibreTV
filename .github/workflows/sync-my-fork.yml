@@ -5,7 +5,7 @@ on:
     # 每天 UTC 时间 04:00 (通常对应北京时间/UTC+8 的中午 12 点)。
     # 你可以根据需要修改这个 cron 表达式。
     # 更多 cron 表达式信息：https://crontab.guru/
-    - cron: "0 4 * * *"
+    - cron: "0 4 */7 * *"
   workflow_dispatch: # 允许你手动从 GitHub Actions 页面触发此工作流
 
 jobs:
